@@ -1,4 +1,10 @@
+/* body{
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url('../src/img/basketball.jpg');
+  color: rgb(255, 255, 255);
 
+} */
 
 .App {
   text-align: center;

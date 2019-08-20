@@ -8,7 +8,7 @@ import {
 import './App.css'
 
 
-function Home({ favPlayers }) {
+function Home({ favPlayers, stats }) {
 
     
     let favs;
@@ -20,7 +20,7 @@ function Home({ favPlayers }) {
         console.log(favPlayers.players[0])
 
         favs = favPlayers.players.map((player, id) => {
-            return <h1 key={id}> <Link to='/details' class>{player.firstName} {player.lastName}</Link>  </h1>
+            return <h1 key={id}> <Link  onClick={() => stats(player.playerId) } to='/details' class>{player.firstName} {player.lastName}</Link>  </h1>
         })
     }
 

@@ -26,8 +26,9 @@ function App() {
   const [players, setPlayers] = useState([]);
   const [playerSearch, setPlayerSearch] = useState('')
   const [favPlayers, setFavPlayers] = useState([])
-  
+  const [currentPlayer, setCurrentPlayer] = useState([])
   const [playerId, setPLayerId] = useState(null)
+  const [playerStats, setPLayerStats] = useState([])
 
 
 
@@ -115,6 +116,16 @@ function App() {
 
 
 
+  function stats(playerId) {
+    if (Object.keys(favPlayers).length) {
+    axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${2010}&player_ids[]=${playerId}`)
+        .then((response) => {
+            setCurrentPlayer(response.data.data)
+            console.log(response.data)
+        })
+    }
+
+}
 
 
 
@@ -148,13 +159,14 @@ function App() {
             <br />
             <Link to='favorite'>Favorites</Link>
           </nav>
-          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} />} />
+          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} stats={stats} />} />
 
-          <Route exact path='/details' render={() => <Details favPlayers={favPlayers} />} />
+          <Route exact path='/details' render={() => <Details favPlayers={favPlayers} currentPlayer={currentPlayer} />} />
 
           <Route exact path='/home' render={() => < Favorite players={players}
             handleInputChange={setPlayerSearch}
             addFav={setFavPlayers}
+            
             user={user} />} />
 
         </Router>
