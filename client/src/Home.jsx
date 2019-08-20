@@ -1,51 +1,43 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
 import './App.css'
 
 
-function Home() {
-    // const [players, setPlayers] = useState([]);
-    // const [playerSearch, setPlayerSearch] = useState('')
-    // const [favPlayer, setFavPlayer] = useState('')
-    // const [games, setGames] = useState(1);
-    // const [teams, setTeams] = useState({})
-    // const [years, setYears] = useState('')
-    // const [playerId, setPlayerId] = useState('')
+function Home({ favPlayers }) {
+
+    
+    let favs;
+    let content = <h1>Loading</h1>
+    if (Object.keys(favPlayers).length) {
 
 
+        content = <h1>My Favorites Players!!! <hr /></h1>
+        console.log(favPlayers.players[0])
 
+        favs = favPlayers.players.map((player, id) => {
+            return <h1 key={id}> <Link to='/details' class>{player.firstName} {player.lastName}</Link>  </h1>
+        })
+    }
 
-
-    // handleInputChange((e) => {
-    //     setName(e.target.name, e.target.value)
-    // })
-
-
-
-    // useEffect(() => {
-    //     axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${2015}&player_ids[]=${237}`)
-    //         .then((response) => {
-    //             console.log(response.data)
-    //             setPlayers(response.data.data)
-    //         })
-
-    // }, [])
 
 
 
     return (
+        <section>
 
-        
-<>
-
-<h1>home page!</h1>
-</>
-
+            {content}
+            {favs}
+            
 
 
 
-    );
+        </section>
+    )
 }
 
 export default Home;

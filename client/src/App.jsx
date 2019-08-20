@@ -3,13 +3,16 @@ import axios from 'axios';
 import Login from './Login'
 import Signup from './Signup'
 import Favorite from './Favorite'
+import Details from './Details'
 import Home from './Home'
+import SignInSide from "./SignInSide";
 import './App.css'
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
+
 
 
 
@@ -22,7 +25,9 @@ function App() {
   const [apiData, setApiData] = useState(null)
   const [players, setPlayers] = useState([]);
   const [playerSearch, setPlayerSearch] = useState('')
-  const [favPlayer, setFavPlayer] = useState('')
+  const [favPlayers, setFavPlayers] = useState([])
+  
+  const [playerId, setPLayerId] = useState(null)
 
 
 
@@ -78,6 +83,12 @@ function App() {
     // })
   }
 
+  // const addFav = (players) => {
+  //   const newPlayerFavs = [...favPlayers, players]
+  //   setFavPlayers(newPlayerFavs);
+
+  // }
+
   useEffect(() => {
     if (playerSearch !== "") {
       axios.get(`https://www.balldontlie.io/api/v1/players/?search=${playerSearch}`)
@@ -88,6 +99,25 @@ function App() {
     }
 
   }, [playerSearch])
+
+
+
+  useEffect(() => {
+    if (user) {
+      axios.get(`/users/${user._id}/players`).then((response) => {
+        setFavPlayers(response.data)
+        console.log(response.data)
+      })
+    }
+
+  }, [user, ])
+  //favPlayers
+
+
+
+
+
+
 
   const logout = () => {
     // remove token from localStorage
@@ -107,18 +137,26 @@ function App() {
   if (user) {
     contents = (
       <>
+      
         <p>Hello,  {user.name}</p>
         <p onClick={logout}>Logout</p>
 
         <Router>
 
           <nav>
-            <Link to='favorite'>Favorites</Link>{''}
-            <br/>
-            <Link to='home'>Home</Link>
+            <Link to='home'>Home</Link>{''}
+            <br />
+            <Link to='favorite'>Favorites</Link>
           </nav>
-          <Route exact path='/home' render={() => <Home />} />
-          <Route exact path='/favorite' render={() => < Favorite players={players} handleInputChange={setPlayerSearch} />} />
+          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} />} />
+
+          <Route exact path='/details' render={() => <Details favPlayers={favPlayers} />} />
+
+          <Route exact path='/home' render={() => < Favorite players={players}
+            handleInputChange={setPlayerSearch}
+            addFav={setFavPlayers}
+            user={user} />} />
+
         </Router>
 
       </>
@@ -126,7 +164,9 @@ function App() {
   } else {
     contents = (
       <>
+
         <p>Please signup or login</p>
+      
         <Login liftToken={liftToken} />
         <Signup liftToken={liftToken} />
       </>

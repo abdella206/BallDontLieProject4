@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import SignInSide from './SignInSide'
 
 class Login extends React.Component {
     constructor(props) {
@@ -67,6 +68,11 @@ class Login extends React.Component {
                         <input type="submit" value="log in"/>
                     </form>
                 </h3>
+                {/* <SignInSide handleSubmit={this.handleSubmit} 
+                            handlePasswordChange={this.handlePasswordChange} 
+                            handleEmailChange={this.handleEmailChange} 
+                            password={this.state.password} 
+                            email={this.state.email} /> */}
             </div>
         )
     }

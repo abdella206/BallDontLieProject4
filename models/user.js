@@ -19,7 +19,9 @@ const userSchema = new mongoose.Schema({
         required: [true, 'You must enter a email'],
         minlength: [5, 'Email must be between 5 and 99 characters'],
         maxlength: [128, 'Email must be between 5 and 99 characters']
-    }
+    },
+    players: [{ type: mongoose.Schema.Types.ObjectId, ref: 'players' }]
+    
 });
 
 userSchema.set('toObject', {
@@ -41,7 +43,7 @@ userSchema.pre('save', function (next) {
     next();
 });
 
-userSchema.methods.authenticated = function(password) {
+userSchema.methods.authenticated = function (password) {
     return bcrypt.compareSync(password, this.password);
 }
 

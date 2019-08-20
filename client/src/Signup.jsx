@@ -1,5 +1,6 @@
 import React from 'react'
 import Axios from 'axios';
+import SignInSide from './SignInSide'
 
 class Signup extends React.Component {
     constructor(props) {
@@ -71,6 +72,7 @@ class Signup extends React.Component {
                         placeholder="Enter your password..." />
                     <input type="submit" value="Sign Up!" />
                 </form>
+                {/* <SignInSide handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} /> */}
             </div>
         )
     }

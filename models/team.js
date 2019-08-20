@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 
 const TeamSchema = new mongoose.Schema({
     apiId: String,
-    
 
 })
 
