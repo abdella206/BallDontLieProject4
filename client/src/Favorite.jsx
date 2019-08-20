@@ -18,7 +18,8 @@ function Favorite({players, handleInputChange, addFavs, user, stats }) {
         })
     }
 
-    
+
+
 
     
 
@@ -33,7 +34,7 @@ function Favorite({players, handleInputChange, addFavs, user, stats }) {
     return (
 
         <section className="fav">
-            <h2>Search for your favorite players</h2>
+            <h2>Search For Your Favorite Players!!</h2>
             <form action="">
                 <input type="text" onChange={(e) => handleInputChange(e.target.value)} />
                 

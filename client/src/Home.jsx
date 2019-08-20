@@ -8,37 +8,8 @@ import {
 import './App.css'
 
 
-function Home({favPlayers, stats, user }) {
+function Home({deleteFav,favPlayers, stats, user }) {
 
-    function deleteFav(playerId) {
-        axios.delete(`/users/${user._id}/players/${playerId}`, { 
-            
-        }).then(res => {
-            axios.get(`/users/${user._id}/players`).then(res => {
-                
-            })
-        })
-    }
-
-
-
-    // function deleteFav(user) {
-    //     axios.delete(`/users/${user._id}/players/${playerId}`, {
-    //     }).then(res => {
-    //         axios.get(`/users/${user._id}/players`).then(res => {
-
-    //         })
-    //     })
-    // }
-
-
-    // const deleteAFavorite = (playerId) => {
-    //     axios.delete(`/users/${user._id}/players/${playerId}`).then((response) => {
-    //         axios.get(`users/${user._id}/players`).then((response) => {
-                
-    //         })
-    //     })
-    // }
 
     let favs;
     let content = <h1>Loading</h1>
@@ -49,8 +20,8 @@ function Home({favPlayers, stats, user }) {
         console.log(favPlayers.players[0])
 
         favs = favPlayers.players.map((player, id) => {
-            return <h1 key={id}> <Link onClick={() => stats(player.playerId)} to='/details' class>{player.firstName} {player.lastName}</Link>{' '}
-                <button onClick={() => deleteFav(player.playerId)}>Delete</button>
+            return <h1 key={id}> <Link  onClick={() => stats(player.playerId)} to='/details' class>{player.firstName} {player.lastName}</Link>{' '}
+                <button onClick={() => deleteFav(player._id)}>Delete</button>
 
             </h1>
         })

@@ -150,10 +150,11 @@ app.put("/players/:id", (req, res) => {
 // })
 
 app.delete("/users/:uid/players/:pid", (req, res) => {
+    console.log("hitting the delete route")
     User.findById(req.params.uid, (err, user) => {
-        Players.deleteOne({ _id: req.params.pid }, err => {
+        Players.deleteOne({ _id: req.params.pid }, (err, data) => {
             if (err) res.json(err)
-            res.json(1);
+            res.json(data);
         })
     })
 })

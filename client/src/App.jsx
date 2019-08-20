@@ -111,21 +111,34 @@ function App() {
       })
     }
 
-  }, [user, ])
+  }, [user,favPlayers])
   //favPlayers
 
 
 
   function stats(playerId) {
-    if (Object.keys(favPlayers).length) {
-    axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${2010}&player_ids[]=${playerId}`)
+      if (Object.keys(favPlayers).length) {
+      axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${2010}&player_ids[]=${playerId}`)
         .then((response) => {
-            setCurrentPlayer(response.data.data)
-            console.log(response.data)
+          setCurrentPlayer(response.data.data)
+          console.log(response.data)
         })
     }
 
-}
+  }
+
+
+
+
+
+  function deleteFav(playerId) {
+    axios.delete(`/users/${user._id}/players/${playerId}`).then(res => {
+      axios.get(`/users/${user._id}/players`).then(res => {
+        setFavPlayers(res.data)
+        console.log(res.data)
+      })
+    })
+  }
 
 
 
@@ -149,25 +162,26 @@ function App() {
   if (user) {
     contents = (
       <>
-      
-        <p>Hello,  {user.name}</p>
-        <p onClick={logout}>Logout</p>
+
 
         <Router>
-
-          <nav>
-            <Link to='home'>Home</Link>{''}
-            <br />
+          <nav className='nav'>
+            <Link to='home'>Home</Link> |
+            
             <Link to='favorite'>Favorites</Link>
           </nav>
-          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} stats={stats}  />} />
+
+
+          <p>Hello,  {user.name}</p>
+          <p onClick={logout}>Logout</p>
+          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} stats={stats} deleteFav={deleteFav} />} />
 
           <Route exact path='/details' render={() => <Details favPlayers={favPlayers} currentPlayer={currentPlayer} />} />
 
           <Route exact path='/home' render={() => < Favorite players={players}
             handleInputChange={setPlayerSearch}
             addFav={setFavPlayers}
-            
+
             user={user} />} />
 
         </Router>
@@ -179,7 +193,7 @@ function App() {
       <>
 
         <p>Please signup or login</p>
-      
+
         <Login liftToken={liftToken} />
         <Signup liftToken={liftToken} />
       </>
@@ -187,14 +201,14 @@ function App() {
   }
   return (
     <>
-    <header className="header">
-      <div>BALLING!!!🏀🏀🏀</div>
-    </header>
-    <div className="App">
+      <header className="header">
+        <div>🏀 BALLING!!!🏀</div>
+      </header>
+      <div className="App">
 
-      {contents}
-    </div>
-    
+        {contents}
+      </div>
+
     </>
   );
 }
