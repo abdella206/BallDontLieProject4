@@ -27,8 +27,8 @@ function App() {
   const [playerSearch, setPlayerSearch] = useState('')
   const [favPlayers, setFavPlayers] = useState([])
   const [currentPlayer, setCurrentPlayer] = useState([])
-  const [playerId, setPLayerId] = useState(null)
-  const [playerStats, setPLayerStats] = useState([])
+  const [playerId, setPlayerId] = useState()
+  const [playerStats, setPlayerStats] = useState([])
 
 
 
@@ -130,6 +130,7 @@ function App() {
 
 
 
+
   const logout = () => {
     // remove token from localStorage
     localStorage.removeItem('mernToken');
@@ -159,7 +160,7 @@ function App() {
             <br />
             <Link to='favorite'>Favorites</Link>
           </nav>
-          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} stats={stats} />} />
+          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} stats={stats}  />} />
 
           <Route exact path='/details' render={() => <Details favPlayers={favPlayers} currentPlayer={currentPlayer} />} />
 
@@ -185,10 +186,16 @@ function App() {
     )
   }
   return (
+    <>
+    <header className="header">
+      <div>BALLING!!!🏀🏀🏀</div>
+    </header>
     <div className="App">
 
       {contents}
     </div>
+    
+    </>
   );
 }
 export default App;
@@ -208,112 +215,3 @@ export default App;
 
 
 
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       token: '',
-//       user: null,
-//       errorMessage: '',
-//       apiDate: null
-//     }
-//     this.checkForLocalToken = this.checkForLocalToken.bind(this);
-//     this.liftToken = this.liftToken.bind(this);
-//     this.logout = this.logout.bind(this);
-//   }
-
-//   checkForLocalToken() {
-//     var token = localStorage.getItem('mernToken')
-//     if (!token || token === 'undefined') {
-//       //  token is invalid or missing
-//       localStorage.removeItem('mernToken');
-//       this.setState({
-//         token: '',
-//         user: null
-//       })
-//     } else {
-//       // we found a token in localStorage, verify it
-//       axios.post('/auth/me/from/token', { token })
-//         .then(res => {
-//           if (res.data.type === 'error') {
-//             localStorage.removeItem('mernToken')
-//             this.setState({
-//               token: '',
-//               user: null,
-//               errorMessage: res.data.message
-//             })
-//           } else {
-//             localStorage.setItem('mernToken', res.data.token);
-//             this.setState({
-//               token: res.data.token,
-//               user: res.data.user,
-//               errorMessage: ''
-//             })
-//           }
-//         })
-//     }
-//   }
-
-//   liftToken(data) {
-//     this.setState({
-//       token: data.token,
-//       user: data.user
-//     })
-//   }
-
-//   logout() {
-//     // Remove token from localStore
-//     localStorage.removeItem('mernToken')
-//     // Remove user and token from state
-//     this.setState({
-//       token: '',
-//       user: null
-//     })
-//   }
-
-//   componentDidMount() {
-//     this.checkForLocalToken()
-//   }
-
-//   render() {
-//     var user = this.state.user
-//     var contents = ''
-//     if (user) {
-//       contents = (
-//         <>
-//           <p>Hello,  {user.name} we ballinnnnn</p>
-//           <p onClick={this.logout}>Logout</p>
-//           <Home />
-
-//         </>
-//       )
-//     } else {
-//       contents = (
-//         <>
-
-//           <p>PLease signup or login</p>
-//           <Login liftToken={this.liftToken} />
-//           <Signup liftToken={this.liftToken} />
-//         </>
-//       );
-//     }
-//     return (
-      // <div className="App">
-
-      //   {contents}
-      // </div>
-
-//     );
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-// export default App;

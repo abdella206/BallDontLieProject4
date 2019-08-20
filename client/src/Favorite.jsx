@@ -4,6 +4,7 @@ import Home from './Home'
 
 
 function Favorite({players, handleInputChange, addFavs, user, stats }) {
+    
     function addFavs(player) {
         axios.post(`/users/${user._id}/players`, { 
             firstName: player.first_name,
@@ -16,6 +17,8 @@ function Favorite({players, handleInputChange, addFavs, user, stats }) {
             })
         })
     }
+
+    
 
     
 

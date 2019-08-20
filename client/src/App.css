@@ -1,10 +1,29 @@
-/* body{
+body{
   background-size: cover;
   background-attachment: fixed;
-  background-image: url('../src/img/basketball.jpg');
+  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('../src/img/basketball.jpg');
   color: rgb(255, 255, 255);
 
-} */
+}
+
+link{
+  color: white;
+}
+
+.header {
+  text-align: center;
+  border-style: solid;
+  background-color: rgba(212, 159, 60, 0.5);
+ /* font-family: 'Yellowtail', cursive;*/
+  font-family: 'Oswald', sans-serif;
+  color: whitesmoke;
+  font-size: 50px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 200;
+}
 
 .App {
   text-align: center;
