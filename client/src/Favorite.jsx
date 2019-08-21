@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Home from './Home'
+import ReactPlayer from 'react-player'
 
 
 function Favorite({ players, handleInputChange, addFavs, user, stats }) {
@@ -34,10 +35,13 @@ function Favorite({ players, handleInputChange, addFavs, user, stats }) {
     return (
 
         <section >
+            <div className="youtube">
+                <ReactPlayer url='https://www.youtube.com/watch?v=9CuMePT5fjQ' playing />
+
+            </div>
                 <h2>Search For Your Favorite Players!!</h2>
                 <form action="">
                     <input type="text" onChange={(e) => handleInputChange(e.target.value)} />
-
                 </form>
             <div className="sectionFav">
             {content}

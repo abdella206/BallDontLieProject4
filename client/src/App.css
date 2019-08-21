@@ -41,7 +41,7 @@ body {
 }
 
 .statsgame {
-  background-color: rgba(70, 143, 226, 0.3);
+  background-color: rgba(48, 50, 53, 0.3);
   border: 1px solid black;
   height: 200px;
   width: 25%;
@@ -49,7 +49,7 @@ body {
 
 
 .statspts {
-  background-color: rgba(70, 143, 226, 0.3);
+  background-color: rgba(48, 50, 53, 0.3);
   border: 1px solid black;
   height: 200px;
   width: 25%;
@@ -57,7 +57,7 @@ body {
 
 
 .statsreb {
-  background-color: rgba(70, 143, 226, 0.3);
+  background-color: rgba(48, 50, 53, 0.3);
   border: 1px solid black;
   height: 200px;
   width: 25%;
@@ -70,7 +70,7 @@ body {
 }
 
 .statsast {
-  background-color: rgba(70, 143, 226, 0.3);
+  background-color: rgba(48, 50, 53, 0.3);
   border: 1px solid black;
   height: 200px;
   width: 25%;
@@ -78,7 +78,7 @@ body {
 
 
 .statsblk {
-  background-color: rgba(70, 143, 226, 0.3);
+  background-color: rgba(48, 50, 53, 0.3);
   border: 1px solid black;
   height: 200px;
   width: 25%;
@@ -86,7 +86,7 @@ body {
 
 
 .statsstl {
-  background-color: rgba(70, 143, 226, 0.3);
+  background-color: rgba(48, 50, 53, 0.3);
   border: 1px solid black;
   height: 200px;
   width: 25%;
@@ -94,17 +94,19 @@ body {
 }
 
 .statstext{
-
   margin: 10px;
   margin-bottom: 25px;
   width: 50%;
-  border: 3px solid green;
+ 
   padding: 10px;
 }
 
 
 
-
+.youtube {
+  margin-left: 35%;
+  
+}
 
 
 

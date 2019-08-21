@@ -9,7 +9,7 @@ import {
 import './App.css'
 
 
-function Home({ deleteFav, favPlayers, stats, user }) {
+function Home({ deleteFav, favPlayers, stats, user, editFav }) {
     const [exampleModal, toggleExampleModal] = useModali();
 
     let favs;
@@ -23,6 +23,7 @@ function Home({ deleteFav, favPlayers, stats, user }) {
         favs = favPlayers.players.map((player, id) => {
             return <h1 key={id}> <Link onClick={() => stats(player.playerId)} to='/details' style={{ color: 'gold' }} activeStyle={{ color: 'red' }}>{player.firstName} {player.lastName}</Link>{' '}
                 <button onClick={() => deleteFav(player._id)}>Delete</button>
+                <button onClick={() => editFav()}>Edit</button>
 
             </h1>
         })
@@ -35,11 +36,15 @@ function Home({ deleteFav, favPlayers, stats, user }) {
         <section>
             {content}
             {favs}
+        
             <button onClick={toggleExampleModal}>
                 Click me to open a basic modal
     </button>
             <Modali.Modal {...exampleModal}>
-                Hi, I'm a Modali!
+            <form action="">
+                Edit Your player
+                    <input type="text" onChange={(e) => editFav(e.target.value)} />
+                </form>
         </Modali.Modal>
         </section>
     )

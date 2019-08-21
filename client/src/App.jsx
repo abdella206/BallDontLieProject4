@@ -29,7 +29,7 @@ function App() {
   const [currentPlayer, setCurrentPlayer] = useState([])
   const [playerId, setPlayerId] = useState()
   const [playerStats, setPlayerStats] = useState([])
-  const [years, setYears] = useState(2013)
+  const [years, setYears] = useState(2010)
 
 
 
@@ -104,6 +104,19 @@ function App() {
 
 
 
+  
+  
+  useEffect(() => {
+    if (years !== "") {
+      axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${years}&player_ids[]=${playerId}`)
+        .then((response) => {
+          console.log(response.data)
+          setFavPlayers(response.data.data)
+        })
+    }
+
+  }, [years])
+
   useEffect(() => {
     if (user) {
       axios.get(`/users/${user._id}/players`).then((response) => {
@@ -112,23 +125,23 @@ function App() {
       })
     }
 
-  }, [user])
+  }, [user,favPlayers])
   //favPlayers
 
 
 
-  function stats(playerId) {
-    
 
-      if (Object.keys(favPlayers).length) {
+  function stats(playerId) {
+    if (Object.keys(favPlayers).length) {
       axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${years}&player_ids[]=${playerId}`)
         .then((response) => {
           setCurrentPlayer(response.data.data)
           console.log(response.data)
         })
     }
-
   }
+
+
 
 
 
@@ -143,6 +156,16 @@ function App() {
     })
   }
 
+
+
+  function editFav(playerId) {
+    axios.put(`/players/${playerId}`).then(res => {
+      axios.get(`/users/${user._id}/players`).then(res => {
+        setFavPlayers(res.data)
+        console.log(res.data)
+      })
+    })
+  }
 
 
 
@@ -185,7 +208,7 @@ function App() {
             
             user={user} />} />
 
-        <Route exact path='/home' render={() => <Home favPlayers={favPlayers} stats={stats} deleteFav={deleteFav}/> } />
+        <Route exact path='/home' render={() => <Home favPlayers={favPlayers} stats={stats} deleteFav={deleteFav} editFav={editFav} /> } />
         </Router>
 
       </div>
