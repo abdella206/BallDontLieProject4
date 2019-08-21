@@ -6,6 +6,265 @@
 
 } */
 
+body {
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('../src/img/ballin.jpg');
+  color: rgb(255, 255, 255);
+}
+
+
+
+.sectionFav{
+  display: flex;
+  justify-content: space-evenly;
+  order: 1;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.favp{
+  color:gold
+}
+
+
+
+
+
+
+
+.flexone {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.statsgame {
+  background-color: rgba(70, 143, 226, 0.3);
+  border: 1px solid black;
+  height: 200px;
+  width: 25%;
+}
+
+
+.statspts {
+  background-color: rgba(70, 143, 226, 0.3);
+  border: 1px solid black;
+  height: 200px;
+  width: 25%;
+}
+
+
+.statsreb {
+  background-color: rgba(70, 143, 226, 0.3);
+  border: 1px solid black;
+  height: 200px;
+  width: 25%;
+}
+
+
+.flextwo {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.statsast {
+  background-color: rgba(70, 143, 226, 0.3);
+  border: 1px solid black;
+  height: 200px;
+  width: 25%;
+}
+
+
+.statsblk {
+  background-color: rgba(70, 143, 226, 0.3);
+  border: 1px solid black;
+  height: 200px;
+  width: 25%;
+}
+
+
+.statsstl {
+  background-color: rgba(70, 143, 226, 0.3);
+  border: 1px solid black;
+  height: 200px;
+  width: 25%;
+  
+}
+
+.statstext{
+
+  margin: 10px;
+  margin-bottom: 25px;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+.ball {
+  background-image: url('./img/basketball.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin-left: 15%;
+  border-radius: 50%;
+  background-color: #FF5722;
+
+  animation: bounce 0.6s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 200px, 0); }
+}
+
+
+ball {
+  -webkit-animation-name: bounce;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  from { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  to   { -webkit-transform: translate3d(0, 200px, 0); transform: translate3d(0, 200px, 0); }
+}
+
+
+.ball2 {
+  background-image: url('./img/basketball.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin-left: 40%;
+  border-radius: 50%;
+  background-color: #FF5722;
+
+  animation: bounce 0.5s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 200px, 0); }
+}
+
+
+ball2 {
+  -webkit-animation-name: bounce;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  from { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  to   { -webkit-transform: translate3d(0, 200px, 0); transform: translate3d(0, 200px, 0); }
+}
+
+
+
+
+.ball3 {
+  background-image: url('./img/basketball.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin-left: 60%;
+  border-radius: 50%;
+  background-color: #FF5722;
+
+  animation: bounce 0.7s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 200px, 0); }
+}
+
+
+ball3 {
+  -webkit-animation-name: bounce;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  from { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  to   { -webkit-transform: translate3d(0, 200px, 0); transform: translate3d(0, 200px, 0); }
+}
+
+
+
+
+
+
+.ball4 {
+  background-image: url('./img/basketball.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin-left: 80%;
+  border-radius: 50%;
+  background-color: #FF5722;
+
+  animation: bounce 0.9s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 200px, 0); }
+}
+
+
+ball4 {
+  -webkit-animation-name: bounce;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  from { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  to   { -webkit-transform: translate3d(0, 200px, 0); transform: translate3d(0, 200px, 0); }
+}
+
+
+
+
+
+
+
+
+
 .link {
   color: white;
 }
@@ -24,7 +283,10 @@
   text-align: center;
   border-style: solid;
   background-color: rgba(216, 114, 20, 0.5);
-  font-family: 'Rock Salt', cursive;
+  font-family: 'Caveat Brush', cursive;
+  font-family: 'Lakki Reddy', cursive;
+  font-family: 'Indie Flower', cursive;
+  font-family: 'Sedgwick Ave Display', cursive;
   color: whitesmoke;
   font-size: 50px;
   top: 0;

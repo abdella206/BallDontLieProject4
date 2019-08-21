@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function SignInSide(props) {
+export default function SignUpSide(props) {
     const classes = useStyles();
 
     return (
@@ -71,11 +71,24 @@ export default function SignInSide(props) {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Sign Up
             </Typography>
                     <form  className={classes.form} noValidate>
+                    <TextField
+                            onChange={props.handleInputChange}
+                            value={props.name}
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="name"
+                            label="Name"
+                            name="name"
+                            autoComplete="name"
+                            autoFocus
+                        />
                         <TextField
-                            onChange={props.handleEmailChange}
+                            onChange={props.handleInputChange}
                             value={props.email}
                             variant="outlined"
                             margin="normal"
@@ -88,7 +101,7 @@ export default function SignInSide(props) {
                             autoFocus
                         />
                         <TextField
-                            onChange={props.handlePasswordChange}
+                            onChange={props.handleInputChange}
                             value={props.password}
                             variant="outlined"
                             margin="normal"
@@ -116,11 +129,11 @@ export default function SignInSide(props) {
             </Button>
                         <Grid container>
                             <Grid item xs>
-                                
+                            
                             </Grid>
                             <Grid item>
-                                <Link href="/signup" variant="body2">
-                                    {"Don't have an account? Sign Up"}
+                                <Link href="/home" variant="body2">
+                                    {"Have an account? Login"}
                                 </Link>
                             </Grid>
                         </Grid>

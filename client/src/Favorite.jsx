@@ -3,17 +3,17 @@ import axios from 'axios';
 import Home from './Home'
 
 
-function Favorite({players, handleInputChange, addFavs, user, stats }) {
-    
+function Favorite({ players, handleInputChange, addFavs, user, stats }) {
+
     function addFavs(player) {
-        axios.post(`/users/${user._id}/players`, { 
+        axios.post(`/users/${user._id}/players`, {
             firstName: player.first_name,
             lastName: player.last_name,
-            playerId: player.id 
-            
+            playerId: player.id
+
         }).then(res => {
             axios.get(`/users/${user._id}/players`).then(res => {
-                
+
             })
         })
     }
@@ -21,26 +21,37 @@ function Favorite({players, handleInputChange, addFavs, user, stats }) {
 
 
 
-    
+
 
     let content;
     if (players.length) {
         content = players.map((player, id) => {
-            return <h1 key={id}> {player.first_name} {player.last_name}<button onClick={() => addFavs(player) } > Add to favorites!</button>  </h1>
+            return <h3 className="favp" key={id}> {player.first_name} {player.last_name}<p onClick={() => addFavs(player)} >🏀</p>  </h3>
         })
     }
 
 
     return (
 
-        <section className="fav">
-            <h2>Search For Your Favorite Players!!</h2>
-            <form action="">
-                <input type="text" onChange={(e) => handleInputChange(e.target.value)} />
-                
-            </form>
+        <section >
+                <h2>Search For Your Favorite Players!!</h2>
+                <form action="">
+                    <input type="text" onChange={(e) => handleInputChange(e.target.value)} />
+
+                </form>
+            <div className="sectionFav">
             {content}
-            
+            </div>
+            <div className='basketball'>
+
+            <div class="ball"></div>
+            <div class="ball2"></div>
+            <div class="ball3"></div>
+            <div class="ball4"></div>
+
+            </div>
+
+
         </section>
 
 

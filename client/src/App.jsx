@@ -29,6 +29,7 @@ function App() {
   const [currentPlayer, setCurrentPlayer] = useState([])
   const [playerId, setPlayerId] = useState()
   const [playerStats, setPlayerStats] = useState([])
+  const [years, setYears] = useState(2013)
 
 
 
@@ -111,14 +112,16 @@ function App() {
       })
     }
 
-  }, [user,favPlayers])
+  }, [user])
   //favPlayers
 
 
 
   function stats(playerId) {
+    
+
       if (Object.keys(favPlayers).length) {
-      axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${2010}&player_ids[]=${playerId}`)
+      axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${years}&player_ids[]=${playerId}`)
         .then((response) => {
           setCurrentPlayer(response.data.data)
           console.log(response.data)
@@ -161,42 +164,43 @@ function App() {
   var contents
   if (user) {
     contents = (
-      <>
-
-
+      <div className="flex">
         <Router>
           <nav className='nav'>
             <Link to='home'>Home</Link> |
             
-            <Link to='favorite'>Favorites</Link>
           </nav>
-
-
           <p>Hello,  {user.name}</p>
           <p onClick={logout}>Logout</p>
-          <Route exact path='/favorite' render={() => <Home favPlayers={favPlayers} stats={stats} deleteFav={deleteFav} />} />
 
-          <Route exact path='/details' render={() => <Details favPlayers={favPlayers} currentPlayer={currentPlayer} />} />
+
+
+          <Route exact path='/details' render={() => <Details  favPlayers={favPlayers} currentPlayer={currentPlayer} handleYearChange={setYears} />}  />
+
+
 
           <Route exact path='/home' render={() => < Favorite players={players}
             handleInputChange={setPlayerSearch}
             addFav={setFavPlayers}
-
+            
             user={user} />} />
 
+        <Route exact path='/home' render={() => <Home favPlayers={favPlayers} stats={stats} deleteFav={deleteFav}/> } />
         </Router>
 
-      </>
+      </div>
     );
   } else {
     contents = (
-      <>
+      <div>
 
-        <p>Please signup or login</p>
+        <Router>
+        <Route exact path='/home' render={() =><Login liftToken={liftToken} /> }/>
+        <Route exact path='/signup' render={() => <Signup liftToken={liftToken} />}/>
+        </Router>
 
-        <Login liftToken={liftToken} />
-        <Signup liftToken={liftToken} />
-      </>
+
+      </div>
     )
   }
   return (

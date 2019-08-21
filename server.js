@@ -126,7 +126,9 @@ app.post('/users/:id/players', (req, res) => {
 
 app.put("/players/:id", (req, res) => {
     Players.findByIdAndUpdate(req.params.id, {
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        playerId:req.body.playerId
     }, {
             new: true
         }, (err, players) => {

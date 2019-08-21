@@ -12,7 +12,7 @@ class Login extends React.Component {
         }
         this.handleEmailChange = this.handleEmailChange.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
-        this.handelSubmit = this.handelSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleEmailChange(e) {
@@ -27,8 +27,9 @@ class Login extends React.Component {
         })
     }
 
-    handelSubmit(e) {
+    handleSubmit(e) {
         e.preventDefault()
+        console.log("it works")
         axios.post('/auth/login', {
             email: this.state.email,
             password: this.state.password
@@ -40,6 +41,7 @@ class Login extends React.Component {
             } else {
                 localStorage.setItem('mernToken', res.data.token)
                 this.props.liftToken(res.data)
+                console.log(res.data)
             }
         }).catch(err => {
             this.setState({
@@ -53,7 +55,7 @@ class Login extends React.Component {
 
         return (
             <div className="Login">
-                <h3>Log into your account:
+                {/* <h3>Log into your account:
                     <form onSubmit={this.handelSubmit}>
                         <input onChange={this.handleEmailChange} 
                                 value={this.state.email} 
@@ -67,12 +69,13 @@ class Login extends React.Component {
                                 placeholder="Enter your password" /><br />
                         <input type="submit" value="log in"/>
                     </form>
-                </h3>
-                {/* <SignInSide handleSubmit={this.handleSubmit} 
+                </h3> */}
+                <SignInSide  
+                            handleSubmit={this.handleSubmit}
                             handlePasswordChange={this.handlePasswordChange} 
                             handleEmailChange={this.handleEmailChange} 
                             password={this.state.password} 
-                            email={this.state.email} /> */}
+                            email={this.state.email} />
             </div>
         )
     }
