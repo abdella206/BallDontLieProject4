@@ -29,7 +29,7 @@ function App() {
   const [currentPlayer, setCurrentPlayer] = useState([])
   const [playerId, setPlayerId] = useState()
   const [playerStats, setPlayerStats] = useState([])
-  const [years, setYears] = useState(2010)
+  const [years, setYears] = useState(2018)
 
 
 
@@ -55,6 +55,7 @@ function App() {
             setToken('')
             setUser(null)
             setErrorMessage(res.data.message)
+            
             // this.setState({
             //   token: '',
             //   user: null,
@@ -107,11 +108,12 @@ function App() {
   
   
   useEffect(() => {
-    if (years !== "") {
+    if (years > 1975) {
+      console.log(`set status for player ${playerId} at ${years}`)
       axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${years}&player_ids[]=${playerId}`)
         .then((response) => {
-          console.log(response.data)
-          setFavPlayers(response.data.data)
+          console.log(response.data.data + "years")
+          setCurrentPlayer(response.data.data)
         })
     }
 
@@ -125,13 +127,15 @@ function App() {
       })
     }
 
-  }, [user,favPlayers])
+  }, [user])
   //favPlayers
 
 
 
 
   function stats(playerId) {
+    console.log(`get stats for player ${playerId}`)
+    setPlayerId(playerId)
     if (Object.keys(favPlayers).length) {
       axios.get(`https://www.balldontlie.io/api/v1/season_averages?season=${years}&player_ids[]=${playerId}`)
         .then((response) => {
@@ -140,8 +144,6 @@ function App() {
         })
     }
   }
-
-
 
 
 

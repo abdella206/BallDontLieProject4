@@ -12,6 +12,7 @@ import './App.css'
 function Home({ deleteFav, favPlayers, stats, user, editFav }) {
     const [exampleModal, toggleExampleModal] = useModali();
 
+
     let favs;
     let content = <h1>Loading</h1>
     if (Object.keys(favPlayers).length) {
@@ -28,6 +29,7 @@ function Home({ deleteFav, favPlayers, stats, user, editFav }) {
             </h1>
         })
     }
+    
 
 
 

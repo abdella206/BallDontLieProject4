@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // 
-function Details({ currentPlayer, handleYearChange }) {
+function Details({ currentPlayer, handleYearChange, favPlayers }) {
 
 
     //     reb: 5.31,
@@ -15,8 +15,9 @@ function Details({ currentPlayer, handleYearChange }) {
     if (currentPlayer.length) {
         content =
             <>
+                
                 <div className='flexone'>
-
+                        
                     <div className='statsgame'><h1 className='statstext'>Games Played:🏀 {currentPlayer[0].games_played}</h1></div>
 
                     <div className='statspts'><h1>Points:🏀 {currentPlayer[0].pts}</h1></div>
@@ -43,8 +44,8 @@ function Details({ currentPlayer, handleYearChange }) {
     return (
 
         <section className="fav">
-
-            <h1>Player  Season Average Stats!</h1>
+            
+            <h1>Player  Season Average Stats! </h1>
             <h1>Select Year: <input onChange={(e) => handleYearChange(e.target.value)} type="number" /></h1>
             {content}
 
