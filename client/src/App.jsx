@@ -5,7 +5,6 @@ import Signup from './Signup'
 import Favorite from './Favorite'
 import Details from './Details'
 import Home from './Home'
-import SignInSide from "./SignInSide";
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -117,7 +116,7 @@ function App() {
         })
     }
 
-  }, [years])
+  }, [years,playerId])
 
   useEffect(() => {
     if (user) {
