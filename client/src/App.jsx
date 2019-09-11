@@ -126,7 +126,7 @@ function App() {
       })
     }
 
-  }, [user])
+  }, [user,favPlayers])
   //favPlayers
 
 
