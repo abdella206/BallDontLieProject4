@@ -1,6 +1,6 @@
 ### General Assembly Web Development Immersive - Project 4
 
-# Kause Event Creation Web App
+# Balling NBA Statistic Web App
 
 ## Full Stack Application - React Node.js Express MongoDB Auth
 
