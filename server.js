@@ -197,7 +197,6 @@ app.use('/balling', require('./routes/balling'));
 app.use('/api', expressJWT({ secret: process.env.JWT_SECRET }), require('./routes/api'));
 
 
-
 app.listen(process.env.PORT, () => {
     console.log(`Your listening to port ${process.env.PORT}...`)
 })
