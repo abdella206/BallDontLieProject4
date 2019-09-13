@@ -32,22 +32,18 @@ Landing page-
 <img width="1409" alt="" src="">
 
 Search favorite players page-
-<img width="1409" alt="Screen Shot 2019-09-11 at 8 58 07 AM" src="">
+<img width="1409" alt="" src="">
 
 PLayers details page-
 <img width="1409" alt="" src="">
 
 ## Building the App
-During the initial ideation of the project, I wanted to create a platform where users can create and share events for a cause. Typically, large organization create these events such as "Walk for Breast Cancer", "March of Dimes", and many more. I wanted to give users the ability to create their own events from little gatherings to large protests, walks, marathons, or even sit in's. I wanted people to have the individual power to take a stand against injustice, show up for support, or simply create a collect voice for a cause. 
-
-Ideally, user can create the event and save it to thier profile. Upon saving it, they can look at the detail of each event and in that details page, they can then hit the share button and the event would automatically generate on thier feed or wherever they choose on thier facebook page. This allows 
-
-
+During the initial ideation of the project, I wanted to create a platform where users can search for their favorite players add them to their favorite players list and get the season average for any year that they played in the NBA. 
 
 ### Future Implementation
-In the near future, I will be adding more styling and making the content a bit cleaner. I will also be making sure that all CRUD routes are in place and functional. For my wish list, I would love to be able to add a home page where users can interact with other users on the app and post events to a shared thread so that app users can also connect with and share other app users' events. That can also be in the form of a live feed of events created and users can filter through the events to find events near them. 
+In the near future, I will be adding more styling and making the content a bit cleaner and better. 
 
-I'm hoping to also add a calander feature to map all user's events on their profile and they can also import thier Facebook events if they choose. Along with the calander feature, I would like to implement the ability to add that event to any other calander they have.
+I'm hoping to also add a favorite team feature so users can stay updated with their fvorite team stats, latest games socres and standings.
 
 I am happy with the way the app followed the prototype design specs and I will continue to build on that. With a few more features and CSS clean up, I'm confident that Kause will be one of the most useful and creative event creatation application out there!
 
@@ -57,7 +53,7 @@ I am happy with the way the app followed the prototype design specs and I will c
 - [FontAwesome Icons](https://fontawesome.com/)
 ## Tutorials, Ideas and Inspiration
 
-- [Build a Project with Node, MongoDB and React.js](https://www.youtube.com/playlist?list=PL55RiY5tL51rG1x02Yyj93iypUuHYXcB_) 
+- [Build a Project with Node, MongoDB and React.js](https://www.youtube.com/playlist?list=PLillGF-RfqbbiTGgA77tGO426V3hRF9iE) 
 
 
 
