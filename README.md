@@ -29,13 +29,13 @@ This is Portfolio Project 4 of General Assembly Web Development Immersive. The g
 
 #### Balling Screenshot
 Landing page-
-<img width="1409" alt="Screen Shot 2019-09-11 at 8 57 37 AM" src="https://user-images.githubusercontent.com/50806842/64713902-8d178580-d472-11e9-9de4-d02c3808a464.png">
+<img width="1409" alt="" src="">
 
-Creating the event page-
-<img width="1409" alt="Screen Shot 2019-09-11 at 8 58 07 AM" src="https://user-images.githubusercontent.com/50806842/64713907-8e48b280-d472-11e9-8bbe-8e2536c4b3a3.png">
+Search favorite players page-
+<img width="1409" alt="Screen Shot 2019-09-11 at 8 58 07 AM" src="">
 
-Event details page-
-<img width="1409" alt="Screen Shot 2019-09-11 at 8 58 45 AM" src="https://user-images.githubusercontent.com/50806842/64713915-8f79df80-d472-11e9-962c-36335fbac464.png">
+PLayers details page-
+<img width="1409" alt="" src="">
 
 ## Building the App
 During the initial ideation of the project, I wanted to create a platform where users can create and share events for a cause. Typically, large organization create these events such as "Walk for Breast Cancer", "March of Dimes", and many more. I wanted to give users the ability to create their own events from little gatherings to large protests, walks, marathons, or even sit in's. I wanted people to have the individual power to take a stand against injustice, show up for support, or simply create a collect voice for a cause. 
