@@ -230,7 +230,7 @@ function App() {
   return (
     <>
       <header className="header">
-        <div>🏀 BALLING!!!🏀</div>
+        <div>🏀BALLING!!!!🏀</div>
       </header>
       <div className="App">
 
