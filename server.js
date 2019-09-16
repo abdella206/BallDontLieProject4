@@ -26,7 +26,7 @@ const signupLimiter = new RateLimit({
     message: "Maximum accounts created please try again later"
 })
 
-mongoose.connect('mongodb://localhost/ballin', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI);
 const db = mongoose.connection;
 
 db.once('open', () => {
