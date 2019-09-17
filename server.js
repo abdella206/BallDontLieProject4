@@ -11,6 +11,7 @@ const Players = require('./models/players')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(helmet())
+app.use(express.static(__dirname + '/client/build')); 
 
 const loginLimiter = new RateLimit({
     windowMs: 5 * 60 * 100,
@@ -26,7 +27,7 @@ const signupLimiter = new RateLimit({
     message: "Maximum accounts created please try again later"
 })
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.once('open', () => {
@@ -140,17 +141,6 @@ app.put("/players/:id", (req, res) => {
 
 
 
-
-//delete a article
-// app.delete("/users/:id/players/:id", (req, res) => {
-//     User.findById(req.params.uid, (err, user) => {
-//         Players.deleteOne({ _id: req.params.id }, err => {
-//             if (err) res.json(err)
-//             res.json(1);
-//         })
-//     })
-// })
-
 app.delete("/users/:uid/players/:pid", (req, res) => {
     console.log("hitting the delete route")
     User.findById(req.params.uid, (err, user) => {
@@ -160,25 +150,6 @@ app.delete("/users/:uid/players/:pid", (req, res) => {
         })
     })
 })
-
-// app.delete('/users/:id', (req, res) => {
-//     User.findById(req.params.id).populate('players').exec(function (err, user) {
-//         Players.findOneAndRemove({
-//             id: req.params.id
-//         },
-//             function (err) {
-//                 // todo after delete trip, pull the trip id from the user as well
-//                 user.players.pull(req.params.id);
-//                 user.save(function (err, user) {
-//                     if (err) res.json(err);
-//                     res.json({ type: 'success', message: 'You deleted one trip', user })
-
-//                 })
-//             })
-//     })
-// })
-
-
 
 
 
@@ -196,6 +167,10 @@ app.use('/auth', require('./routes/auth'));
 app.use('/balling', require('./routes/balling'));
 app.use('/api', expressJWT({ secret: process.env.JWT_SECRET }), require('./routes/api'));
 
+
+app.get('*', function(req, res) {
+	res.sendFile(__dirname + '/client/build/index.html');
+});
 
 app.listen(process.env.PORT, () => {
     console.log(`Your listening to port ${process.env.PORT}...`)
