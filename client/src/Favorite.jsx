@@ -4,7 +4,7 @@ import Home from './Home'
 import ReactPlayer from 'react-player'
 
 
-function Favorite({ players, handleInputChange, addFavsOld, user, stats }) {
+function Favorite({ players, handleInputChange, user, stats }) {
 
     function addFavs(player) {
         axios.post(`/users/${user._id}/players`, {
