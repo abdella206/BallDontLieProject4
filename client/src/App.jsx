@@ -219,7 +219,7 @@ function App() {
       <div>
 
         <Router>
-        <Route exact path='/home' render={() =><Login liftToken={liftToken} /> }/>
+        <Route exact path='/' render={() =><Login liftToken={liftToken} /> }/>
         <Route exact path='/signup' render={() => <Signup liftToken={liftToken} />}/>
         </Router>
 
