@@ -1,5 +1,5 @@
 ### General Assembly Web Development Immersive - Project 4
-**[Balling - Full Stack Web App](https://balling206.herokuapp.com)** 
+**[Live Site Balling - Full Stack Web App](https://balling206.herokuapp.com)** 
 # Balling NBA Statistic Web App
 
 ## Full Stack Application - React Node.js Express MongoDB Auth
