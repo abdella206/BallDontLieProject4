@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Home from './Home'
 import ReactPlayer from 'react-player'
 
 
